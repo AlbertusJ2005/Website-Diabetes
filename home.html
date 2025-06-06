@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TestGula</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">TestGula.</div>
+    <nav>
+      <a href="home.html" style="color: #5e2fe3;">Home</a>
+      <a href="penanganan.html">Penanganan</a>
+      <a href="info.html">Info</a>
+    </nav>
+    <a href="signup.html" class="btn-login">Login</a>
+  </header>
+
+  <section class="hero">
+    <h1>Test Gula Darah, Langkah Kecil untuk Hidup Besar!</h1>
+    <a href="test.html" class="btn-pri">Test Sekarang!</a>
+    
+  </section>
+
+  <section class="section">
+    <h2>Mengapa TestGula?</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Prediksi Akurat</h3>
+        <p>Algoritma kami menggunakan data medis terkini untuk memberikan prediksi risiko diabetes yang akurat dan terpercaya.</p>
+      </div>
+      <div class="feature">
+        <h3>Privasi Terjamin</h3>
+        <p>Data kesehatan Anda sepenuhnya aman dan terlindungi. Kami memprioritaskan keamanan informasi pribadi Anda.</p>
+      </div>
+      <div class="feature">
+        <h3>Mudah Digunakan</h3>
+        <p>Antarmuka yang sederhana dan intuitif, memudahkan siapa saja untuk melakukan tes prediksi diabetes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimoni">
+    <h2>Testimoni</h2>
+    <a href="testimoni.html" class="btn-testi">Lihat & Tambah Testimoni</a>
+  
+    <div class="box">
+      <h3 style="color: #5e2fe3;">Albert</h3>
+      <p style="color: gray;">Mahasiswa</p>
+      <p>⭐⭐⭐⭐⭐</p>
+      <h4>Pengalaman Saya</h4>
+      <p>TestGula membantu saya memahami risiko diabetes dengan cara yang mudah dan informatif. Antarmuka aplikasinya sangat ramah pengguna.</p>
+    </div>
+  </section>
+  
+
+  <footer class="footer">
+    <div>
+      <h2 style="color: #5e2fe3;">TestGula</h2>
+      <p>Platform prediksi risiko diabetes yang mudah digunakan dan akurat untuk membantu Anda menjaga kesehatan dengan lebih baik.</p>
+    </div>
+    <div>
+      <h4>Tautan</h4>
+      <a href="home.html">Home</a>
+      <a href="test.html">Test Diabetes</a>
+      <a href="penanganan.html">Penanganan</a>
+      <a href="info.html">Info</a>
+    </div>
+    <div>
+      <h4>Kontak</h4>
+      <p>Email: info@testgula.id</p>
+      <p>Telepon: +62 123 4567 890</p>
+      <p>Alamat: Jl. Kesehatan No. 123, Jakarta</p>
+    </div>
+  </footer>
+
+  <div class="footer-bottom">
+    © 2025 TestGula. Semua Hak Dilindungi. Aplikasi ini hanya untuk tujuan edukasi.
+  </div>
+
+</body>
+<script>
+  // Cek login status saat halaman dimuat
+  const loggedInUser = localStorage.getItem("loggedInUser");
+  const loginBtn = document.querySelector(".btn-login");
+
+  if (loggedInUser) {
+    // Jika sudah login, ubah tombol menjadi Logout
+    loginBtn.textContent = "Logout";
+    loginBtn.addEventListener("click", () => {
+      localStorage.removeItem("loggedInUser");
+      alert("Anda telah logout.");
+      window.location.reload();
+    });
+  } else {
+    // Jika belum login, arahkan ke login saat klik
+    loginBtn.addEventListener("click", () => {
+      window.location.href = "login.html";
+    });
+  }
+
+  // Arahkan tombol "Test Sekarang!" hanya jika login
+  const testBtn = document.querySelector(".btn-pri");
+  if (testBtn) {
+    testBtn.addEventListener("click", function (e) {
+      if (!loggedInUser) {
+        e.preventDefault();
+        alert("Silakan login terlebih dahulu untuk mengakses tes.");
+        window.location.href = "login.html";
+      }
+    });
+  }
+</script>
+
+</html>

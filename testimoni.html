@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimoni - TestGula</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="logo">TestGula.</div>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="penanganan.html">Penanganan</a>
+      <a href="info.html">Info</a>
+    </nav>
+  </header>
+
+  <section class="hero-mini">
+    <h1>Berikan Testimoni Anda</h1>
+    <p>Kami menghargai pengalaman Anda menggunakan TestGula</p>
+  </section>
+
+  <section class="form-section">
+    <h2>Formulir Testimoni</h2>
+    <form class="form-vertikal" id="formTestimoni">
+      <input type="text" placeholder="Nama Anda" id="nama" required>
+      <input type="text" placeholder="Profesi (Opsional)" id="profesi">
+      
+      <label for="rating">Rating:</label>
+      <div class="rating" id="rating">
+        <span data-star="5">★</span>
+        <span data-star="4">★</span>
+        <span data-star="3">★</span>
+        <span data-star="2">★</span>
+        <span data-star="1">★</span>
+      </div>
+      
+      <textarea rows="5" placeholder="Tulis testimoni Anda..." id="pesan" required></textarea>
+      <button type="submit">Kirim Testimoni</button>
+    </form>
+  </section>
+
+  <section class="testimoni">
+    <h2>Testimoni Pengguna</h2>
+    <div id="listTestimoni" class="testimoni-list"></div>
+  </section>
+
+  <footer class="footer">
+    <div>
+      <h2 style="color: #5e2fe3;">TestGula</h2>
+      <p>Platform prediksi risiko diabetes yang mudah digunakan dan akurat untuk membantu Anda menjaga kesehatan dengan lebih baik.</p>
+    </div>
+    <div>
+      <h4>Tautan</h4>
+      <a href="home.html">Home</a>
+      <a href="test.html">Test Diabetes</a>
+      <a href="penanganan.html">Penanganan</a>
+      <a href="info.html">Info</a>
+    </div>
+    <div>
+      <h4>Kontak</h4>
+      <p>Email: info@testgula.id</p>
+      <p>Telepon: +62 123 4567 890</p>
+      <p>Alamat: Jl. Kesehatan No. 123, Jakarta</p>
+    </div>
+  </footer>
+
+  <div class="footer-bottom">
+    © 2025 TestGula. Semua Hak Dilindungi. Aplikasi ini hanya untuk tujuan edukasi.
+  </div>
+
+  <script>
+    const ratingStars = document.querySelectorAll(".rating span");
+    let currentRating = 0;
+
+    ratingStars.forEach((star) => {
+      star.addEventListener("click", () => {
+        currentRating = star.dataset.star;
+        ratingStars.forEach(s => s.classList.remove("selected"));
+        for (let i = 0; i < 6 - currentRating; i++) {
+          ratingStars[i].classList.add("selected");
+        }
+      });
+    });
+
+    document.getElementById("formTestimoni").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const nama = document.getElementById("nama").value;
+      const profesi = document.getElementById("profesi").value || "Pengguna";
+      const pesan = document.getElementById("pesan").value;
+
+      if (!currentRating) {
+        alert("Silakan pilih rating bintang terlebih dahulu.");
+        return;
+      }
+
+      const list = document.getElementById("listTestimoni");
+
+      const card = document.createElement("div");
+      card.className = "box";
+      card.innerHTML = `
+        <h3 style="color: #5e2fe3;">${nama}</h3>
+        <p style="color: gray;">${profesi}</p>
+        <p>${"⭐".repeat(currentRating)}</p>
+        <h4>Pengalaman Saya</h4>
+        <p>${pesan}</p>
+      `;
+
+      list.prepend(card);
+      this.reset();
+      ratingStars.forEach(s => s.classList.remove("selected"));
+      currentRating = 0;
+    });
+  </script>
+
+</body>
+</html>

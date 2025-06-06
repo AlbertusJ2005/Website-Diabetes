@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tes Risiko Diabetes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <script>
+      if (!localStorage.getItem("loggedInUser")) {
+        alert("Anda harus login terlebih dahulu.");
+        window.location.href = "login.html";
+      }
+    </script>
+
+    <header>
+      <div class="logo">TestGula.</div>
+      <nav>
+        <a href="home.html">Home</a>
+        <a href="penanganan.html">Penanganan</a>
+        <a href="#">Info</a>
+      </nav>
+    </header>
+
+    <section class="hero-mini">
+      <h1>Tes Prediksi Risiko Diabetes</h1>
+      <p>Evaluasi cepat untuk mengetahui tingkat risiko diabetes Anda</p>
+    </section>
+
+    <section class="form-section">
+      <h2>Informasi Kesehatan</h2>
+      <p>
+        Masukkan data kesehatan Anda untuk mendapatkan evaluasi risiko diabetes
+      </p>
+      <form id="testForm" class="form-vertikal">
+        <label>Nama Lengkap</label>
+        <input type="text" name="nama" required />
+        <label>Jenis Kelamin</label>
+        <div class="gender-options">
+          <label
+            ><input type="radio" name="gender" value="Laki-laki" /> Laki -
+            Laki</label
+          >
+          <label
+            ><input type="radio" name="gender" value="Perempuan" />
+            Perempuan</label
+          >
+        </div>
+        <label>Usia</label>
+        <input type="number" name="usia" required />
+        <label>BMI</label>
+        <input type="number" name="bmi" step="0.1" required />
+        <label>Diabetes Pedigree Function</label>
+        <input
+          type="number"
+          name="diabetespedigreefunction"
+          step="0.001"
+          required
+        />
+        <label>Jumlah Kehamilan</label>
+        <input type="number" name="kehamilan" required />
+        <label>Kadar Glukosa</label>
+        <input type="number" name="glukosa" required />
+        <label>Tekanan Darah</label>
+        <input type="number" name="tekanan" required />
+        <label>Ketebalan Lipatan Kulit</label>
+        <input type="number" name="kulit" required />
+        <label>Kadar Insulin</label>
+        <input type="number" name="insulin" required />
+        <button type="submit">CONTINUE</button>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <div>
+        <h2 style="color: #5e2fe3">TestGula</h2>
+        <p>
+          Platform prediksi risiko diabetes yang mudah digunakan dan akurat
+          untuk membantu Anda menjaga kesehatan dengan lebih baik.
+        </p>
+      </div>
+      <div>
+        <h4>Tautan</h4>
+        <a href="home.html">Home</a>
+        <a href="tes.html">Test Diabetes</a>
+        <a href="penanganan.html">Penanganan</a>
+        <a href="info.html">Info</a>
+      </div>
+      <div>
+        <h4>Kontak</h4>
+        <p>Email: info@testgula.id</p>
+        <p>Telepon: +62 123 4567 890</p>
+        <p>Alamat: Jl. Kesehatan No. 123, Jakarta</p>
+      </div>
+    </footer>
+
+    <div class="footer-bottom">
+      © 2025 TestGula. Semua Hak Dilindungi. Aplikasi ini hanya untuk tujuan
+      edukasi.
+    </div>
+
+    <script>
+      document
+        .getElementById("testForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault(); // cegah reload
+
+          const form = e.target;
+
+          const data = {
+            pregnancies: form.kehamilan.value,
+            glucose: form.glukosa.value,
+            bloodpressure: form.tekanan.value,
+            skinthickness: form.kulit.value,
+            insulin: form.insulin.value,
+            bmi: form.bmi.value,
+            diabetespedigreefunction: form.diabetespedigreefunction.value,
+            age: form.usia.value,
+          };
+
+          try {
+            const response = await fetch("http://127.0.0.1:5000/predict", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            });
+
+            const result = await response.json();
+
+            // Simpan hasil dan arahkan ke halaman hasil
+            localStorage.setItem("hasilPrediksi", result.prediction);
+            localStorage.setItem("Probabilitas", result.probability);
+            window.location.href = "hasil.html";
+          } catch (error) {
+            alert("Terjadi kesalahan saat mengirim data.");
+            console.error(error);
+          }
+        });
+    </script>
+  </body>
+</html>

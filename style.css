@@ -1,0 +1,537 @@
+/* Reset dan font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Gaya umum untuk body */
+  body {
+    background-color: #ffffff;
+    color: #333;
+  }
+  
+  /* Bagian Header dan Footer Atas */
+  header, footer {
+    background: #f8f9fd;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Logo Website */
+  .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #5e2fe3;
+  }
+  
+  /* Navigasi */
+  nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  /* Tombol Umum */
+  .btn-login, .btn-pri, .btn-testi {
+    background: linear-gradient(to right, #7e41ff, #cc37ff);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  /* Bagian Hero */
+  .hero {
+    text-align: center;
+    background: linear-gradient(to right, #4f2cdd, #a864ec);
+    color: white;
+    padding: 4rem 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Seksi umum (Why TestGula) */
+  .section {
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  
+  /* Kontainer fitur */
+  .features {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  /* Setiap kotak fitur */
+  .feature {
+    background: #f0f0f7;
+    padding: 1.5rem;
+    border-radius: 15px;
+    max-width: 300px;
+  }
+  /* Efek interaktif saat klik untuk tombol dan link */
+nav a,
+.btn-login,
+.btn-pri,
+.btn-testi {
+  transition: all 0.2s ease;
+}
+
+nav a:active,
+.btn-login:active,
+.btn-pri:active,
+.btn-testi:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+/* Efek tombol dan link hover + klik */
+nav a,
+.btn-login,
+.btn-pri,
+.btn-testi {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  transform-origin: center;
+}
+
+/* Hover: tombol/link sedikit naik & glow */
+nav a:hover,
+.btn-login:hover,
+.btn-pri:hover,
+.btn-testi:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(94, 47, 227, 0.3);
+}
+
+/* Click: efek membal */
+nav a:active,
+.btn-login:active,
+.btn-pri:active,
+.btn-testi:active {
+  transform: scale(0.93);
+  box-shadow: 0 4px 10px rgba(94, 47, 227, 0.2);
+  opacity: 0.85;
+}
+
+/* Hilangkan underline hanya untuk tombol Test Sekarang */
+.btn-pri {
+  text-decoration: none;
+}
+
+/* Hilangkan underline khusus untuk tombol "Test Sekarang!" */
+.btn-pri {
+  text-decoration: none;
+}
+
+/* Optional: Tambahkan hover glow ringan */
+nav a:hover,
+.btn-login:hover,
+.btn-pri:hover,
+.btn-testi:hover {
+  opacity: 0.9;
+}
+
+  /* Seksi testimoni */
+  .testimoni {
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+  
+  /* Kotak testimoni */
+  .testimoni .box {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  /* Footer utama */
+  .footer {
+    background: #111827;
+    color: #fff;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer div {
+    margin: 1rem;
+  }
+  
+  /* Judul bagian di footer */
+  .footer h4 {
+    margin-bottom: 1rem;
+    color: #f472b6;
+  }
+  
+  /* Link di footer */
+  .footer a {
+    color: #fff;
+    display: block;
+    margin: 0.3rem 0;
+    text-decoration: none;
+  }
+  
+  /* Footer paling bawah */
+  .footer-bottom {
+    text-align: center;
+    background: #111827;
+    color: #888;
+    padding-bottom: 1rem;
+  }
+  
+  /*====================================test.html*/
+  /* Formulir Tes Diabetes */
+.form-section {
+    background-color: #f8f9fd;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  
+  .form-section h2 {
+    color: #5e2fe3;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-section p {
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  
+  .form-diabetes {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  }
+  
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-row > div {
+    flex: 1 1 45%;
+    margin-bottom: 1rem;
+  }
+  
+  .form-row label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .form-row input,
+  .form-row select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+
+  .gender-options {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0.5rem 0 1.2rem;
+  }
+  
+  .gender-options label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  
+
+  
+  /* Hero mini background ungu seperti halaman home */
+.hero-mini {
+    text-align: center;
+    background: linear-gradient(to right, #4f2cdd, #a864ec);
+    color: white;
+    padding: 3rem 2rem;
+  }
+  
+  .hero-mini h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Bagian Form Tes */
+  .form-section {
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .form-grid input,
+  .form-grid select {
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+  
+  .form-grid button {
+    grid-column: span 2;
+    justify-self: center;
+    margin-top: 1rem;
+  }
+  .form-vertikal {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 500px;
+    margin: 2rem auto 0;
+  }
+  
+  .form-vertikal input,
+  .form-vertikal select {
+    padding: 0.8rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .form-vertikal button {
+    padding: 0.9rem;
+    background-color: #5e2fe3;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.3s ease;
+  }
+  
+  .form-vertikal button:hover {
+    background-color: #4c24c9;
+  }
+    /*====================================signup.html*/
+    /* Umum */
+
+  /*hasil
+  /* ========================= hasil.html ========================= */
+.result-section {
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fd;
+  min-height: 50vh;
+}
+
+.result-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 3rem 2rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.result-card h2 {
+  font-size: 2rem;
+  color: #5e2fe3;
+  margin-bottom: 1rem;
+}
+
+.result-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* ================= Penanganan ================= */
+.grid-pilar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.pilar-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 2rem;
+  max-width: 320px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.pilar-card:hover {
+  transform: translateY(-5px);
+}
+
+.pilar-card h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 1rem 0 0.5rem;
+}
+
+.pilar-card p {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.pilar-icon {
+  width: 250px;
+  height: 200px;
+  margin-bottom: 1rem;
+}
+
+/* ======================== info.html ======================== */
+.info-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.info-card {
+  background: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  max-width: 350px;
+}
+
+.info-card h3 {
+  margin-bottom: 0.3rem;
+}
+
+.subjudul {
+  color: #a855f7;
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.info-card ul {
+  padding-left: 1rem;
+  list-style: none;
+}
+
+.info-card ul li {
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+/* Statistik */
+.statistik-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  justify-items: center;
+}
+
+.statistik-box {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 15px;
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.statistik-box h1 {
+  color: #5e2fe3;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ======================== testimoni.html ======================== */
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.rating span {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.rating span:hover,
+.rating span:hover ~ span {
+  color: #fbbf24;
+  transform: scale(1.2);
+}
+
+.rating span.selected,
+.rating span.selected ~ span {
+  color: #fbbf24;
+}
+
+textarea {
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  font-size: 1rem;
+}
+
+.testimoni-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Efek hover animasi untuk link di footer */
+.footer a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.footer a:hover {
+  color: #a78bfa; /* ungu muda */
+  transform: translateY(-2px);
+  text-decoration: underline;
+}
+
+.footer a:hover {
+  box-shadow: 0 5px 15px rgba(94, 47, 227, 0.3);
+}

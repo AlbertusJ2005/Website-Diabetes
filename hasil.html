@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hasil Prediksi - TestGula</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <script>
+    if (!localStorage.getItem("loggedInUser")) {
+      alert("Anda harus login terlebih dahulu.");
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <header>
+    <div class="logo">TestGula.</div>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="penanganan.html">Penanganan</a>
+      <a href="#">Info</a>
+    </nav>
+  </header>
+
+  <section class="hero-mini">
+    <h1>Hasil Prediksi Anda</h1>
+    <p>Berikut hasil evaluasi risiko diabetes berdasarkan data yang Anda masukkan</p>
+  </section>
+
+  <section class="result-section">
+    <div class="result-card">
+      <h2 id="hasil-prediksi">Loading...</h2>
+      <p id="deskripsi-hasil">Mohon tunggu sebentar...</p>
+      <p id="Probabilitas-positif"></p>
+      <a href="test.html" class="btn-pri">Tes Ulang</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>
+      <h2 style="color: #5e2fe3;">TestGula</h2>
+      <p>Platform prediksi risiko diabetes yang mudah digunakan dan akurat untuk membantu Anda menjaga kesehatan dengan lebih baik.</p>
+    </div>
+    <div>
+      <h4>Tautan</h4>
+      <a href="home.html">Home</a>
+      <a href="test.html">Test Diabetes</a>
+      <a href="penanganan.html">Penanganan</a>
+      <a href="#">Tentang Kami</a>
+    </div>
+    <div>
+      <h4>Kontak</h4>
+      <p>Email: info@testgula.id</p>
+      <p>Telepon: +62 123 4567 890</p>
+      <p>Alamat: Jl. Kesehatan No. 123, Jakarta</p>
+    </div>
+  </footer>
+
+  <div class="footer-bottom">
+    © 2023 TestGula. Semua Hak Dilindungi. Aplikasi ini hanya untuk tujuan edukasi.
+  </div>
+
+  <script>
+    const hasil = localStorage.getItem("hasilPrediksi");
+    const teksHasil = document.getElementById("hasil-prediksi");
+    const deskripsi = document.getElementById("deskripsi-hasil");
+    const probability = localStorage.getItem("Probabilitas");
+    const Probabilitas = document.getElementById("Probabilitas-positif");
+    if (hasil) {
+      teksHasil.textContent = hasil;
+      if (hasil === "Diabetes") {
+        deskripsi.textContent = "Hasil menunjukkan bahwa Anda memiliki risiko diabetes. Disarankan untuk berkonsultasi dengan tenaga medis.";
+      } else {
+        deskripsi.textContent = "Selamat! Anda tidak menunjukkan tanda-tanda risiko diabetes saat ini. Tetap jaga pola hidup sehat.";
+      }
+      Probabilitas.textContent = "Probabilitas: " + probability +"%"
+    } else {
+      teksHasil.textContent = "Data tidak ditemukan.";
+      deskripsi.textContent = "Silakan kembali ke halaman tes dan lakukan pengisian ulang.";
+    }
+  </script>
+</body>
+</html>
